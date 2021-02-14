@@ -13,45 +13,34 @@
         <div class="row">
                 <div class="col-auto me-auto">
                     <div class="list-group text-center" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action" id="list-a-list" data-bs-toggle="list" href="#list-action" role="tab" aria-controls="action">Action</a>
-                        <a class="list-group-item list-group-item-action" id="list-b-list" data-bs-toggle="list" href="#list-aventure" role="tab" aria-controls="aventure">Aventure</a>
-                        <a class="list-group-item list-group-item-action" id="list-c-list" data-bs-toggle="list" href="#list-shonen" role="tab" aria-controls="shonen">Shonen</a>
-                        <a class="list-group-item list-group-item-action" id="list-d-list" data-bs-toggle="list" href="#list-seinen" role="tab" aria-controls="seinen">Seinen</a>
-                        <a class="list-group-item list-group-item-action" id="list-e-list" data-bs-toggle="list" href="#list-manwha" role="tab" aria-controls="manwha">Manwha</a>
-                        <a class="list-group-item list-group-item-action" id="list-f-list" data-bs-toggle="list" href="#list-thriller" role="tab" aria-controls="thriller">Thriller</a>
-                        <a class="list-group-item list-group-item-action" id="list-g-list" data-bs-toggle="list" href="#list-psychologie" role="tab" aria-controls="psychologie">Psychologie</a>
-                        <a class="list-group-item list-group-item-action" id="list-h-list" data-bs-toggle="list" href="#list-fiction" role="tab" aria-controls="fiction">Fiction</a>
-                        <a class="list-group-item list-group-item-action" id="list-i-list" data-bs-toggle="list" href="#list-fantastique" role="tab" aria-controls="fantastique">Fantastique</a>
-                        <a class="list-group-item list-group-item-action" id="list-j-list" data-bs-toggle="list" href="#list-shojo" role="tab" aria-controls="shojo">shojo</a>
-                        <a class="list-group-item list-group-item-action" id="list-k-list" data-bs-toggle="list" href="#list-comedie" role="tab" aria-controls="comedie">Comedie</a>
-                        <a class="list-group-item list-group-item-action" id="list-l-list" data-bs-toggle="list" href="#list-art-martiaux" role="tab" aria-controls="art-martiaux">Art-Martiaux</a>
-                        <a class="list-group-item list-group-item-action" id="list-m-list" data-bs-toggle="list" href="#list-detective" role="tab" aria-controls="detective">Detective</a>
-                        <a class="list-group-item list-group-item-action" id="list-n-list" data-bs-toggle="list" href="#list-drame" role="tab" aria-controls="drame">Drame</a>
-                        <a class="list-group-item list-group-item-action" id="list-o-list" data-bs-toggle="list" href="#list-musique" role="tab" aria-controls="musique">Musique</a>
-                        <a class="list-group-item list-group-item-action" id="list-p-list" data-bs-toggle="list" href="#list-sport" role="tab" aria-controls="sport">Sport</a>
-                        <a class="list-group-item list-group-item-action" id="list-q-list" data-bs-toggle="list" href="#list-surnaturel" role="tab" aria-controls="surnaturel">Surnaturel</a>
+                    {% for categorie in categories %}
+                        <a class="list-group-item list-group-item-action" id="list-a-list" href="{{ path('list_manga', { 'categorie' : categorie.id }) }}" role="tab" aria-controls="action">{{ categorie.nom }}</a>
+                    {% endfor %}
                     </div>
                 </div>
         </div>
        
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-<!--Card-->
-                        <div class="card wow fadeIn" data-wow-delay="0.2s">
-<!--Card image-->
-                            <img class="img-fluid" src="{{ asset('build/1.jpg') }}" alt="Card image cap">
-<!--Card content-->
-                                <div class="card-body">
-<!--Title-->
-                                    <h4 class="card-title">L'attaque des titans</h4>
-<!--Text-->
-                                        <p class="card-text"></p>
-                                            <a href="#" class="btn btn-info">Acheter</a>
-                                            <a href="#" class="btn btn-info">Infos</a>
-                                </div>
+                    {% for produit in produits %}
+                        <div class="col-md-3 mt-3">
+
+                            <!--Card-->
+                            <div class="card wow fadeIn" data-wow-delay="0.2s">
+                                <!--Card image-->
+                                <img class="img-fluid" src="{{ asset('build/1.jpg') }}" alt="Card image cap">
+                                    <!--Card content-->
+                                    <div class="card-body">
+                                        <!--Title-->
+                                        <h4 class="card-title">{{ produit.titre }}</h4>
+                                            <!--Text-->
+                                            <p class="card-text"></p>
+                                                <a href="{{ path('panier_add', { 'idProduit' : produit.id }) }}" class="btn btn-info">Acheter</a>
+                                                <a href="{{ path('info', { 'id': produit.id }) }}" class="btn btn-info">Infos</a>
+                                    </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>    
   </div> 

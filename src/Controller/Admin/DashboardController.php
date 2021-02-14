@@ -37,6 +37,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('My Mangas'),
             MenuItem::linkToCrud('Produit', 'fa fa-tags', ProduitCrudController::class)->setController(ProduitCrudController::class),
             MenuItem::linkToCrud('Membres', 'fa fa-file-text', UserCrudController::class)->setController(UserCrudController::class),
+            MenuItem::linkToCrud('Categories', 'fa fa-file-text', CategorieCrudController::class)->setController(CategorieCrudController::class),
 
             MenuItem::section('Mes commandes'),
             MenuItem::linkToCrud('Commandes', 'fa fa-tags', CommandeCrudController::class)->setController(CommandeCrudController::class),

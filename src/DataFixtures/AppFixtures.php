@@ -2,9 +2,12 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Categorie;
+use App\Entity\Category;
 use App\Entity\Commande;
 use App\Entity\Contact;
 use App\Entity\DetailsCommande;
+use App\Entity\Genre;
 use App\Entity\Produit;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -27,16 +30,24 @@ class AppFixtures extends Fixture
             ->setEmail("email$i@gmail.com")
             ->setNom("Name $i")
             ->setPrenom("Prenom $i")
-            ->setPassword("mdp$i");
+            ->setPassword("mdp$i")
+            ->setAvatar("https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/05/avatar-1024x577.jpg");
 
             $manager->persist($user);
+
+            // CATEGORY
+            $categorie = new Categorie();
+            $categorie->setNom("catégorie $i");
+            $manager->persist($categorie);
 
             // PRODUIT
             $produit = new Produit();
             $produit->setReference("reference $i")
             ->setTitre("titre $i")
-            ->setGenre("genre $i")
-            ->setPhoto("photo $i");
+            ->setCategorie($categorie)
+            ->setPhoto("photo $i")
+            ->setPrix($i * 12)
+            ->setDescription("description nº$i");
 
             $manager->persist($produit);
 

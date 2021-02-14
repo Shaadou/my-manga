@@ -4,9 +4,9 @@ body {
 	background: linear-gradient(to right, #488ac0, #000748);
 }
 
-h4 {
+/* h4 {
 	color: white;
-}
+} */
 
 footer { width:100%; background-color: #488ac0; min-height:20px; padding:10px 0px 25px 0px ;}
 
@@ -29,3 +29,100 @@ footer { width:100%; background-color: #488ac0; min-height:20px; padding:10px 0p
 .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
 
 
+
+
+/* INFOS */
+
+
+#info .card {
+    background-color: #ffffff;
+    border-radius: 20px
+}
+
+p {
+    color: #b7b1b1;
+    font-weight: 500;
+}
+
+#info .discBtn {
+    background-color: #488ac0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#info .fa-heart {
+    color: #e74c3c;
+}
+
+#info .buy {
+    border-radius: 20px;
+    background-color: #e8f6f6;
+    color: #e74c3c;
+}
+
+#info .cart {
+    background-color: #e74c3c;
+    border-radius: 30px;
+    position: relative;
+    right: 35px;
+}
+
+#info .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* PANIER */
+
+.bloc_left_price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+  }
+  .category_block li:hover {
+    background-color: #007bff;
+  }
+  .category_block li:hover a {
+    color: #ffffff;
+  }
+  .category_block li a {
+    color: #343a40;
+  }
+  .add_to_cart_block .price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    margin-bottom: 0;
+  }
+  .add_to_cart_block .price_discounted {
+    color: #343a40;
+    text-align: center;
+    text-decoration: line-through;
+    font-size: 140%;
+  }
+  .product_rassurance {
+    padding: 10px;
+    margin-top: 15px;
+    background: #ffffff;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+  }
+  .product_rassurance .list-inline {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .product_rassurance .list-inline li:hover {
+    color: #343a40;
+  }
+  .reviews_product .fa-star {
+    color: gold;
+  }
+  .pagination {
+    margin-top: 20px;
+  }
+  

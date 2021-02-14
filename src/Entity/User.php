@@ -68,6 +68,11 @@ class User implements UserInterface
      */
     private $commandes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $avatar;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
@@ -240,6 +245,18 @@ class User implements UserInterface
                 $commande->setIdMembre(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }
