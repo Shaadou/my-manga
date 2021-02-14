@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Produit
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
+
+    /**
+     * @ORM\OneToMany(targetEntity=DetailsCommande::class, mappedBy="idProduit")
+     */
+    private $detailsCommandes;
+
+    public function __construct()
+    {
+        $this->detailsCommandes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,36 @@ class Produit
     public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DetailsCommande[]
+     */
+    public function getDetailsCommandes(): Collection
+    {
+        return $this->detailsCommandes;
+    }
+
+    public function addDetailsCommande(DetailsCommande $detailsCommande): self
+    {
+        if (!$this->detailsCommandes->contains($detailsCommande)) {
+            $this->detailsCommandes[] = $detailsCommande;
+            $detailsCommande->setIdProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetailsCommande(DetailsCommande $detailsCommande): self
+    {
+        if ($this->detailsCommandes->removeElement($detailsCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($detailsCommande->getIdProduit() === $this) {
+                $detailsCommande->setIdProduit(null);
+            }
+        }
 
         return $this;
     }
