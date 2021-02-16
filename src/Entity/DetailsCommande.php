@@ -35,7 +35,7 @@ class DetailsCommande
 
     /**
      * @ORM\ManyToOne(targetEntity=Produit::class, inversedBy="detailsCommandes")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $idProduit;
 

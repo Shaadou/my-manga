@@ -40,6 +40,7 @@ class PanierService {
     }
 
     public function getFullCart(): array {
+        
         $panier = $this->session->get('panier', []);
 
         $panierWithDatas = [];

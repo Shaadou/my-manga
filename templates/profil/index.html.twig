@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Profil{% endblock %}
 
 {% block body %}
 
@@ -199,15 +199,27 @@ ul.online-users {
 #deconnexion {
   color: red;
 }
+
+.centreVerticalement {
+ padding-right: 40px;
+}
+
+.bas {
+  padding-top: 55px;
+}
+
+.gauche {
+  padding-left: 20px
+}
 </style>
 
-<div class="container">
+<div class="container d-flex">
     <div class="row">
-      <div class="col-md-4 static move">
+      <div class=" static move centreVerticalement bas">
         <div class="profile-card">
           <img src="{{ app.user.avatar }}" alt="user" class="profile-photo" />
           <h5><a href="#" class="text-white"> {{ app.user.nom }} {{ app.user.prenom }}</a></h5>
-          <a href="#" class="text-white"><i class="fa fa-user"></i> 1,299 followers</a>
+          <a href="#" class="text-white"><i class="fa fa-user"></i> 0 abonnés</a>
           <div><a id="deconnexion" href="{{ path('app_logout') }}"> Se déconnecter </a></div>
         </div>
         <!--profile card ends-->
@@ -320,7 +332,7 @@ ul.online-users {
         </ul>
         <!--news-feed links ends-->
         <div id="chat-block">
-          <div class="title">Chat online</div>
+          <div class="title">Amis en ligne</div>
           <ul class="online-users list-inline">
             <li>
               <a href="#" title="Linda Lohan"
@@ -415,6 +427,212 @@ ul.online-users {
           </ul>
         </div>
         <!--chat block ends-->
+      </div>
+    </div>
+
+  
+
+
+
+  <div class="container gauche">
+      <div class="row text-center text-white bas">
+      </div>
+      <div class="row">
+        <div class="col-lg-14 mx-auto">
+          <!-- List group-->
+          <ul class="list-group shadow">
+            <!-- list group item-->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - TOME 1
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera |
+                    7MP Front Camera A12 Bionic Chip Processor
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star-o text-gray"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                 src="{{ asset('build/9782811611699-T.jpg') }}"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+            <!-- list group item-->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - Tome 32
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    64 GB ROM | 14.73 cm (5.8 inch) Super Retina HD Display 12MP
+                    + 12MP | 7MP Front Camera A12 Bionic Chip Processor
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6,95€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="onepice.jpg"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+            <!-- list group item -->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - Tome 32
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    64 GB ROM | 16.51 cm (6.5 inch) Super Retina HD Display 12MP
+                    + 12MP | 7MP Front Camera A12 Bionic Chip Processor
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6,95€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star-o text-gray"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="onepice.jpg"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+            <!-- list group item -->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - Tome 32
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    Rear Camera|48MP (Primary)+ 8MP (Tele-photo)+16MP
+                    (ultrawide)| Front Camera|16 MP POP-UP Camera|8GB
+                    RAM|Android pie
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6,95€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="snk.jpg"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+          </ul>
+          <!-- End -->
+        </div>
       </div>
     </div>
   </div>

@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CopyRightController extends AbstractController
+class ConfirmationPaiementController extends AbstractController
 {
     /**
-     * @Route("/copyright", name="copyright")
+     * @Route("/confirmation/paiement", name="confirmation_paiement")
      */
     public function index(): Response
     {
-        return $this->render('copy_right/index.html.twig', [
-            'controller_name' => 'CopyRightController',
+        return $this->render('confirmation_paiement/index.html.twig', [
+            'controller_name' => 'ConfirmationPaiementController',
         ]);
     }
 }

@@ -19,7 +19,7 @@
   crossorigin="anonymous"
 />
 
-        {% block stylesheets %}
+    {% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 
@@ -41,9 +41,9 @@
 
   <div class="container">
     <ul class="foote_bottom_ul_amrc">
-      <li><a href="">Mention Légales</a></li>
-        <li><a href="">Contact</a></li>
-          <li><a href="">Copyright @2021</a></li>
+      <li><a href="{{ path('mentions_legales') }}">Mention Légales</a></li>
+        <li><a href="{{ path('contact') }}">Contact</a></li>
+          <li><a href="{{ path('copyright') }}">Copyright @2021</a></li>
     </ul>
 
     <ul class="social_footer_ul">

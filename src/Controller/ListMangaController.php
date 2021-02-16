@@ -17,7 +17,7 @@ class ListMangaController extends AbstractController
      */
     public function index($categorie, ProduitRepository $produitRepository): Response
     {
-        $produits = $produitRepository->findByCategorie($categorie);
+        $produits = $produitRepository->findByCategorieById($categorie);
 
         $repoCategorie = $this->getDoctrine()->getRepository(Categorie::class);
         $categories = $repoCategorie->findAll();

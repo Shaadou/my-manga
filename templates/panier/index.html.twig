@@ -70,7 +70,7 @@
             <tr>
               <th scope="col"></th>
               <th scope="col">Produit</th>
-              <th scope="col">Available</th>
+              <th scope="col">Disponible</th>
               <th scope="col">Prix</th>
               <th scope="col" class="text-center">Quantité</th>
               <th scope="col" class="text-right">Total</th>
@@ -82,10 +82,10 @@
           {% for item in items %}
             
             <tr>
-              <td><img src="https://dummyimage.com/50x50/55595c/fff" /></td>
+              <td><img style="width:50px" src="{{ asset('uploads/images/products/' ~ item.product.image ) }}"/></td>
               <td>{{ item.product.titre }}</td>
-              <td>In stock</td>
-              <td>{{ item.product.prix }} €</td>
+              <td>En stock</td>
+              <td> {{ item.product.titre }} €</td>
               <td><input class="form-control" type="text" value="{{ item.quantity }}" /></td>
               <td class="text-right">{{ item.product.prix * item.quantity }} €</td>
               <td class="text-right">
@@ -104,7 +104,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td>Sub-Total</td>
+              <td>Total</td>
               <td class="text-right"> {{ total }} €</td>
             </tr>
             <tr>
@@ -113,7 +113,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td>Shipping</td>
+              <td>Frais de livraison</td>
               <td class="text-right">6,90 €</td>
             </tr>
             <tr>
@@ -132,12 +132,12 @@
     <div class="col mb-2">
       <div class="row">
         <div class="col-sm-12 col-md-6">
-          <button class="btn btn-block btn-light">Continue Shopping</button>
+          <a href="{{ path('list_manga') }}" class="btn btn-block btn-light nav-link">Continuer à faire du shopping</a>
         </div>
         <div class="col-sm-12 col-md-6 text-right">
-          <button class="btn btn-lg btn-block btn-success text-uppercase">
-            Checkout
-          </button>
+          <a href="{{ path('paiement') }}" class="btn btn-lg btn-block btn-success text-uppercase">
+            Acheter
+          </a>
         </div>
       </div>
     </div>

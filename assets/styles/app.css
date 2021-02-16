@@ -4,7 +4,7 @@ body {
 	background: linear-gradient(to right, #488ac0, #000748);
 }
 
-/* h4 {
+/* #tendance h4 {
 	color: white;
 } */
 
@@ -125,4 +125,15 @@ p {
   .pagination {
     margin-top: 20px;
   }
-  
+
+
+.essaiee {
+  padding-right: 100px;
+  padding-left: 100px;
+
+}
+
+.blanc {
+  color: white;
+}
+
