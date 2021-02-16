@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CopyRightController extends AbstractController
 {
     /**
-     * @Route("/copyright", name="copy_right")
+     * @Route("/copyright", name="copyright")
      */
     public function index(): Response
     {

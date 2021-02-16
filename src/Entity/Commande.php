@@ -34,16 +34,17 @@ class Commande
      */
     private $etat;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Membre::class, inversedBy="commandes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idMembre;
 
     /**
      * @ORM\OneToMany(targetEntity=DetailsCommande::class, mappedBy="idCommande")
      */
     private $detailsCommandes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commandes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idMembre;
 
     public function __construct()
     {
@@ -91,18 +92,6 @@ class Commande
         return $this;
     }
 
-    public function getIdMembre(): ?Membre
-    {
-        return $this->idMembre;
-    }
-
-    public function setIdMembre(?Membre $idMembre): self
-    {
-        $this->idMembre = $idMembre;
-
-        return $this;
-    }
-
     /**
      * @return Collection|DetailsCommande[]
      */
@@ -132,4 +121,23 @@ class Commande
 
         return $this;
     }
+
+    public function getIdMembre(): ?User
+    {
+        return $this->idMembre;
+    }
+
+    public function setIdMembre(?User $idMembre): self
+    {
+        $this->idMembre = $idMembre;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string)$this->id;
+    }
+
+    
 }

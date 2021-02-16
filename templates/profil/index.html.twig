@@ -1,0 +1,640 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous"
+/>
+
+<style>
+
+    .profile-card {
+  background: linear-gradient(to bottom, #bcd2e4, #4682b4);
+  background-size: cover;
+  width: 100%;
+  min-height: 90px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.profile-card img.profile-photo {
+  border: 7px solid #fff;
+  float: left;
+  margin-right: 20px;
+  position: relative;
+  top: -30px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.profile-card h5 a {
+  font-size: 15px;
+}
+
+.profile-card a {
+  font-size: 12px;
+}
+
+/*Newsfeed Links CSS*/
+
+ul.nav-news-feed {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 0 40px 0;
+  background: #fff;
+  padding-top: 20px;
+}
+
+ul.nav-news-feed li {
+  list-style: none;
+  display: block;
+  padding: 15px 0;
+}
+
+ul.nav-news-feed li div {
+  position: relative;
+  margin-left: 30px;
+}
+
+ul.nav-news-feed li div::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #f1f2f2;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+}
+
+ul.nav-news-feed li a {
+  color: #6d6e71;
+}
+
+ul.nav-news-feed li i {
+  font-size: 18px;
+  margin-right: 15px;
+  float: left;
+}
+
+ul.nav-news-feed i.icon1 {
+  color: #0f12d6;
+}
+
+ul.nav-news-feed i.icon2 {
+  color: #662d91;
+}
+
+ul.nav-news-feed i.icon3 {
+  color: #e9520d;
+}
+
+ul.nav-news-fee i.icon4 {
+  color: #836644;
+}
+
+ul.nav-news-fee i.con5 {
+  color: #1c75bc;
+}
+
+ul.nav-news-feed i.icon6 {
+  color: #2a2a44;
+}
+
+/*Chat Block CSS*/
+
+#chat-block {
+  margin: 0 0 40px 0;
+  text-align: center;
+  background: #fff;
+  padding-top: 20px;
+}
+
+#chat-block .title {
+  background: #4682b4;
+  padding: 2px 20px;
+  width: 70%;
+  height: 30px;
+  border-radius: 15px;
+  position: relative;
+  margin: 0 auto 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+ul.online-users {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+ul.online-users li {
+  list-style: none;
+  position: relative;
+  margin: 3px auto !important;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+ul.online-users li span.online-dot {
+  background: linear-gradient(
+    to bottom,
+    rgba(141, 198, 63, 1),
+    rgba(0, 148, 68, 1)
+  );
+  border: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px;
+  border: 2px solid #fff;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+img.profile-photo {
+  height: 58px;
+  width: 58px;
+  border-radius: 50%;
+}
+
+ul.online-users {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.text-white {
+  color: #fff;
+}
+
+::before {
+    display: none;
+}
+
+#deconnexion {
+  color: red;
+}
+
+.centreVerticalement {
+ padding-right: 40px;
+}
+
+.bas {
+  padding-top: 55px;
+}
+
+.gauche {
+  padding-left: 20px
+}
+</style>
+
+<div class="container d-flex">
+    <div class="row">
+      <div class=" static move centreVerticalement bas">
+        <div class="profile-card">
+          <img src="{{ app.user.avatar }}" alt="user" class="profile-photo" />
+          <h5><a href="#" class="text-white"> {{ app.user.nom }} {{ app.user.prenom }}</a></h5>
+          <a href="#" class="text-white"><i class="fa fa-user"></i> 0 abonnés</a>
+          <div><a id="deconnexion" href="{{ path('app_logout') }}"> Se déconnecter </a></div>
+        </div>
+        <!--profile card ends-->
+        <ul class="nav-news-feed">
+          <li>
+            <i class="fa fa-list-alt icon1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                /></svg
+            ></i>
+            <div><a href="#">Abonnés</a></div>
+          </li>
+          <li>
+            <i class="fa fa-users icon2"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-people-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"
+                />
+                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" /></svg
+            ></i>
+            <div><a href="#">Abonnements</a></div>
+          </li>
+          <li>
+            <i class="fa fa-user icon3"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-seam"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"
+                /></svg
+            ></i>
+            <div><a href="#">Commandes</a></div>
+          </li>
+          <li>
+            <i class="fa fa-comments icon4"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                /></svg
+            ></i>
+            <div><a href="#">Favoris</a></div>
+          </li>
+          <li>
+            <i class="fa fa-picture-o icon5"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-info-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                />
+                <path
+                  d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                /></svg
+            ></i>
+            <div><a href="#">Infos</a></div>
+          </li>
+          <li>
+            <i class="fa fa-video-camera icon6"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                /></svg
+            ></i>
+            <div><a href="#">Paramètres</a></div>
+          </li>
+        </ul>
+        <!--news-feed links ends-->
+        <div id="chat-block">
+          <div class="title">Amis en ligne</div>
+          <ul class="online-users list-inline">
+            <li>
+              <a href="#" title="Linda Lohan"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Sophia Lee"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="John Doe"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Alexis Clark"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="James Carter"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar4.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Robert Cook"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Richard Bell"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Anna Young"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Julia Cox"
+                ><img
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  alt="user"
+                  class="img-responsive profile-photo" /><span
+                  class="online-dot"
+                ></span
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <!--chat block ends-->
+      </div>
+    </div>
+
+  
+
+
+
+  <div class="container gauche">
+      <div class="row text-center text-white bas">
+      </div>
+      <div class="row">
+        <div class="col-lg-14 mx-auto">
+          <!-- List group-->
+          <ul class="list-group shadow">
+            <!-- list group item-->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - TOME 1
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera |
+                    7MP Front Camera A12 Bionic Chip Processor
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star-o text-gray"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                 src="{{ asset('build/9782811611699-T.jpg') }}"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+            <!-- list group item-->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - Tome 32
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    64 GB ROM | 14.73 cm (5.8 inch) Super Retina HD Display 12MP
+                    + 12MP | 7MP Front Camera A12 Bionic Chip Processor
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6,95€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="onepice.jpg"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+            <!-- list group item -->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - Tome 32
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    64 GB ROM | 16.51 cm (6.5 inch) Super Retina HD Display 12MP
+                    + 12MP | 7MP Front Camera A12 Bionic Chip Processor
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6,95€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star-o text-gray"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="onepice.jpg"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+            <!-- list group item -->
+            <li class="list-group-item">
+              <!-- Custom content-->
+              <div
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
+              >
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
+                    Attaque des Titans - Tome 32
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
+                    Rear Camera|48MP (Primary)+ 8MP (Tele-photo)+16MP
+                    (ultrawide)| Front Camera|16 MP POP-UP Camera|8GB
+                    RAM|Android pie
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-1"
+                  >
+                    <h6 class="font-weight-bold my-2">6,95€</h6>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                      <li class="list-inline-item m-0">
+                        <i class="fa fa-star text-success"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="snk.jpg"
+                  alt="Generic placeholder image"
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
+              </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+          </ul>
+          <!-- End -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -33,6 +33,17 @@ class DetailsCommande
      */
     private $idCommande;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Produit::class, inversedBy="detailsCommandes")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $idProduit;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,4 +84,34 @@ class DetailsCommande
 
         return $this;
     }
+
+    public function getIdProduit(): ?Produit
+    {
+        return $this->idProduit;
+    }
+
+    public function setIdProduit(?Produit $idProduit): self
+    {
+        $this->idProduit = $idProduit;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
 }
